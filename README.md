@@ -151,8 +151,23 @@ The following graphic depicts the course of request through the authentication p
 
 
 ## Какие сообщества развивают данную СУБД? Кто в проекте имеет права на коммит и создание дистрибутива версий? Расскажите об этих людей и/или компаниях.
+
+### Contributing
+Druid is a community-led project and we are delighted to receive contributions of anything from minor fixes to big new features.
+
+<img width="719" alt="image" src="https://user-images.githubusercontent.com/100207961/237056250-cf0216ae-a589-4380-9070-b4e582da055c.png">
+
+Основной вклад вносит компания Imply. Также много участников из компании Alibaba
+
+Imply is a company of developers, innovators, problem solvers, and mavericks, passionate about helping developers drive the next generation of analytics innovation. We are backed by Thoma Bravo, Andreessen Horowitz (a16z), Bessemer Venture Partners, Tiger Global Management, Khosla Ventures, and Geodesic Capital.
+
+We are proud that developers at companies of all sizes – from startups to Fortune 100 enterprises – choose Imply to build real-time analytics applications.
+
+Alibaba - китайская публичная компания, работающая в сфере интернет-коммерции, владелец веб-порталов Taobao.com, Tmall, Alibaba.com, AliExpress и ряда других.
+
 ## Создайте свои собственные данные для демонстрации работы СУБД. 
 ## Как продолжить самостоятельное изучение языка запросов с помощью демобазы. Если демобазы нет, то создайте ее.
+
 ## Где найти документацию и пройти обучение
 
 Документация доступна на официальном сайте druid https://druid.apache.org/docs/latest/design/
