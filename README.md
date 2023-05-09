@@ -55,6 +55,14 @@ The indexing service is composed of three main components: a Peon component that
 Tasks are managed using API endpoints on the Overlord service. Please see Overlord Task API for more information.
 
 
+Apache Druid supports the following types of native batch indexing tasks:
+
+*Parallel task indexing (index_parallel) that can run multiple indexing tasks concurrently. Parallel task works well for production ingestion tasks.
+*Simple task indexing (index) that run a single indexing task at a time. Simple task indexing is suitable for development and test environments.
+This topic covers the configuration for index_parallel ingestion specs.
+
+
+
 ## Как строится процесс выполнения запросов в вашей СУБД?
 ## Есть ли для вашей СУБД понятие «план запросов»? Если да, объясните, как работает данный этап.
 
