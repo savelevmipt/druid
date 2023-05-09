@@ -182,6 +182,10 @@ We are proud that developers at companies of all sizes – from startups to Fort
 Alibaba - китайская публичная компания, работающая в сфере интернет-коммерции, владелец веб-порталов Taobao.com, Tmall, Alibaba.com, AliExpress и ряда других.
 
 ## Создайте свои собственные данные для демонстрации работы СУБД. 
+Загрузим данные через терминал
+<img width="1099" alt="image" src="https://github.com/savelevmipt/druid/assets/100207961/d8d708de-af8d-4704-b44e-b59dd359b4c9">
+<img width="882" alt="image" src="https://github.com/savelevmipt/druid/assets/100207961/3caa90dc-d387-46a5-8a26-20a37f75ca6e">
+
 ## Как продолжить самостоятельное изучение языка запросов с помощью демобазы. Если демобазы нет, то создайте ее.
 Демобаза есть, она включена в стандартный пакет. <img width="655" alt="image" src="https://github.com/savelevmipt/druid/assets/100207961/d61159c9-2833-475a-badc-0efc16db4512">
 Выше была произведена работа с демобазой
