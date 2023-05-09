@@ -84,6 +84,12 @@ On the ingestion side, Druid's primary ingestion methods are all pull-based and 
 * Native batch ingestion. In parallel mode, the supervisor task publishes all segment metadata in a single transaction after the subtasks are finished. In simple (single-task) mode, the single task publishes all segment metadata in a single transaction after it is complete.
 
 ## Какие методы восстановления поддерживаются в вашей СУБД. Расскажите о них.
+
+Репликация данных: Все данные в Druid копируются настраиваемое количество раз, поэтому сбой одного сервера не влияет на запрос.
+
+Автоматическое резервное копирование данных: Druid автоматически выполняет резервное копирование всех данных индекса в файловую систему, такую ​​как HDFS. Вы можете потерять весь кластер Druid и быстро восстановить данные из этой резервной копии.
+
+
 ## Расскажите про шардинг в вашей конкретной СУБД. Какие типы используются? Принцип работы.
 
 ![image](https://user-images.githubusercontent.com/100207961/237036284-235ceec2-4a50-498d-ba91-2cf121ca52b7.png)
