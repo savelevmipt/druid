@@ -62,12 +62,42 @@ Druid is a services-based architecture that consists of independently scalable s
 A Druid deployment is a scalable cluster of commodity hardware with node types that serve specific functions. In a small configuration, all of these nodes can run together on a single server (or even a laptop). For larger deployments, one or more servers are dedicated to each node type and can scale to thousands of nodes for higher throughput requirements.
 
 Master Nodes govern data availability and ingestion
+
 Query Nodes accept queries, manage execution across the system, and return the results
+
 Data Nodes execute ingestion workloads and queries as well as store queryable data
+
 In addition, Druid utilizes a deep storage layer - cloud object storage or HDFS - that contains an additional copy of each data segment. It enables background data movement between Druid processes and also provides a highly durable data source to recover from system failures.
 
 
 ## Возможно ли применить термины Data Mining, Data Warehousing и OLAP в вашей СУБД?
+
+Druid is primarily used for business intelligence (OLAP) queries on event data.
+
+Sub-second OLAP Queries Druid’s unique architecture enables rapid multi-dimensional filtering, ad-hoc attribute groupings, and extremely fast aggregations.
+
+Druid is a good fit if you have the following requirements:
+
+1. You are building an application that requires fast aggregations and OLAP queries
+1. You want to do real-time analysis
+1. You have lots of data (trillions of events, petabytes of data)
+1. You need a data store that is always available with no single point of failure
+
+# Is Druid a data warehouse?
+
+Apache Druid is a new type of database to power real-time analytic workloads for event-driven data, and isn’t a traditional data warehouse. Although Druid incorporates architecture ideas from data warehouses such as column-oriented storage, Druid also incorporates designs from search systems and timeseries databases. Druid's architecture is designed to handle many use cases that traditional data warehouses cannot.
+
+Druid offers the following advantages over traditional data warehouses:
+
+* Much lower latency for OLAP-style queries
+* Much lower latency for data ingest (both streaming and batch)
+* Out-of-the-box integration with Apache Kafka, AWS Kinesis, HDFS, AWS S3, and more
+* Time-based partitioning, which enables performant time-based queries
+* Fast search and filter, for fast slice and dice
+* Minimal schema design and native support for semi-structured and nested data
+
+
+
 ## Какие методы защиты поддерживаются вашей СУБД? Шифрование трафика, модели авторизации и т.п.
 ## Какие сообщества развивают данную СУБД? Кто в проекте имеет права на коммит и создание дистрибутива версий? Расскажите об этих людей и/или компаниях.
 ## Создайте свои собственные данные для демонстрации работы СУБД. 
