@@ -75,6 +75,124 @@ This topic covers the configuration for index_parallel ingestion specs.
 Да, план запросов есть, его можно открыть и посмотреть 
 <img width="1280" alt="image" src="https://user-images.githubusercontent.com/100207961/237032483-fc2662b6-5a60-4d57-b040-7d85df5b7873.png">
 
+Add "EXPLAIN PLAN FOR" to the beginning of any query to get information about how it will be translated. In this case, the query will not actually be executed. Refer to the Query translation documentation for more information on the output of EXPLAIN PLAN.
+
+<img width="655" alt="image" src="https://github.com/savelevmipt/druid/assets/100207961/b5ecc473-c027-44b9-83a8-0e9c20706af1">
+
+[
+  {
+    "query": {
+      "queryType": "topN",
+      "dataSource": {
+        "type": "join",
+        "left": {
+          "type": "table",
+          "name": "wikipedia"
+        },
+        "right": {
+          "type": "query",
+          "query": {
+            "queryType": "groupBy",
+            "dataSource": {
+              "type": "table",
+              "name": "wikipedia"
+            },
+            "intervals": {
+              "type": "intervals",
+              "intervals": [
+                "-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z"
+              ]
+            },
+            "granularity": {
+              "type": "all"
+            },
+            "dimensions": [
+              {
+                "type": "default",
+                "dimension": "page",
+                "outputName": "d0",
+                "outputType": "STRING"
+              }
+            ],
+            "aggregations": [
+              {
+                "type": "count",
+                "name": "a0"
+              }
+            ],
+            "limitSpec": {
+              "type": "default",
+              "columns": [
+                {
+                  "dimension": "a0",
+                  "direction": "descending",
+                  "dimensionOrder": {
+                    "type": "numeric"
+                  }
+                }
+              ],
+              "limit": 10
+            },
+            "context": {
+              "sqlOuterLimit": 101,
+              "sqlQueryId": "ee616a36-c30c-4eae-af00-245127956e42",
+              "useApproximateCountDistinct": false,
+              "useApproximateTopN": false
+            }
+          }
+        },
+        "rightPrefix": "j0.",
+        "condition": "(\"channel\" == \"j0.d0\")",
+        "joinType": "INNER"
+      },
+      "dimension": {
+        "type": "default",
+        "dimension": "channel",
+        "outputName": "d0",
+        "outputType": "STRING"
+      },
+      "metric": {
+        "type": "dimension",
+        "ordering": {
+          "type": "lexicographic"
+        }
+      },
+      "threshold": 101,
+      "intervals": {
+        "type": "intervals",
+        "intervals": [
+          "-146136543-09-08T08:23:32.096Z/146140482-04-24T15:36:27.903Z"
+        ]
+      },
+      "granularity": {
+        "type": "all"
+      },
+      "aggregations": [
+        {
+          "type": "count",
+          "name": "a0"
+        }
+      ],
+      "context": {
+        "sqlOuterLimit": 101,
+        "sqlQueryId": "ee616a36-c30c-4eae-af00-245127956e42",
+        "useApproximateCountDistinct": false,
+        "useApproximateTopN": false
+      }
+    },
+    "signature": [
+      {
+        "name": "d0",
+        "type": "STRING"
+      },
+      {
+        "name": "a0",
+        "type": "LONG"
+      }
+    ]
+  }
+]
+
 ## Поддерживаются ли транзакции в вашей СУБД? Если да, то расскажите о нем. Если нет, то существует ли альтернатива?
 
 On the ingestion side, Druid's primary ingestion methods are all pull-based and offer transactional guarantees. This means that you are guaranteed that ingestion using these methods will publish in an all-or-nothing manner:
@@ -152,7 +270,6 @@ The following graphic depicts the course of request through the authentication p
 
 ## Какие сообщества развивают данную СУБД? Кто в проекте имеет права на коммит и создание дистрибутива версий? Расскажите об этих людей и/или компаниях.
 
-### Contributing
 Druid is a community-led project and we are delighted to receive contributions of anything from minor fixes to big new features.
 
 <img width="719" alt="image" src="https://user-images.githubusercontent.com/100207961/237056250-cf0216ae-a589-4380-9070-b4e582da055c.png">
@@ -167,7 +284,8 @@ Alibaba - китайская публичная компания, работаю
 
 ## Создайте свои собственные данные для демонстрации работы СУБД. 
 ## Как продолжить самостоятельное изучение языка запросов с помощью демобазы. Если демобазы нет, то создайте ее.
-
+Демобаза есть, она включена в стандартный пакет. <img width="655" alt="image" src="https://github.com/savelevmipt/druid/assets/100207961/d61159c9-2833-475a-badc-0efc16db4512">
+Выше была произведена работа с демобазой
 ## Где найти документацию и пройти обучение
 
 Документация доступна на официальном сайте druid https://druid.apache.org/docs/latest/design/
