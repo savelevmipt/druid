@@ -31,10 +31,19 @@ Native queries in Druid are JSON objects and are typically issued to the Broker 
 
 Интерфейс очень приятный и красивый.
 
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/100207961/237030360-15fcfa01-41ad-4505-a872-c6f22025836c.png">
+
 
 
 ## Возможно ли распределение файлов БД по разным носителям?
+You can use segment partitioning and sorting within your Druid datasources to reduce the size of your data and increase performance.
+
+One way to partition is to load data into separate datasources. This is a perfectly viable approach that works very well when the number of datasources does not lead to excessive per-datasource overheads.
+
 ## На каком языке/ах программирования написана СУБД?
+
+Druid написан на Java.
+
 ## Какие типы индексов поддерживаются в БД? Приведите пример создания индексов.
 ## Как строится процесс выполнения запросов в вашей СУБД?
 ## Есть ли для вашей СУБД понятие «план запросов»? Если да, объясните, как работает данный этап.
