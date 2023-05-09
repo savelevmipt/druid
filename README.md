@@ -45,6 +45,16 @@ One way to partition is to load data into separate datasources. This is a perfec
 Druid написан на Java.
 
 ## Какие типы индексов поддерживаются в БД? Приведите пример создания индексов.
+
+The Apache Druid indexing service is a highly-available, distributed service that runs indexing related tasks.
+
+Indexing tasks create (and sometimes destroy) Druid segments. The indexing service has a master/slave like architecture.
+
+The indexing service is composed of three main components: a Peon component that can run a single task, a Middle Manager component that manages Peons, and an Overlord component that manages task distribution to MiddleManagers. Overlords and MiddleManagers may run on the same process or across multiple processes while MiddleManagers and Peons always run on the same process.
+
+Tasks are managed using API endpoints on the Overlord service. Please see Overlord Task API for more information.
+
+
 ## Как строится процесс выполнения запросов в вашей СУБД?
 ## Есть ли для вашей СУБД понятие «план запросов»? Если да, объясните, как работает данный этап.
 
@@ -90,7 +100,7 @@ Druid is a good fit if you have the following requirements:
 1. You have lots of data (trillions of events, petabytes of data)
 1. You need a data store that is always available with no single point of failure
 
-# Is Druid a data warehouse?
+### Is Druid a data warehouse?
 
 Apache Druid is a new type of database to power real-time analytic workloads for event-driven data, and isn’t a traditional data warehouse. Although Druid incorporates architecture ideas from data warehouses such as column-oriented storage, Druid also incorporates designs from search systems and timeseries databases. Druid's architecture is designed to handle many use cases that traditional data warehouses cannot.
 
