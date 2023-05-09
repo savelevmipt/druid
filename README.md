@@ -47,9 +47,26 @@ Druid написан на Java.
 ## Какие типы индексов поддерживаются в БД? Приведите пример создания индексов.
 ## Как строится процесс выполнения запросов в вашей СУБД?
 ## Есть ли для вашей СУБД понятие «план запросов»? Если да, объясните, как работает данный этап.
+
+Да, план запросов есть, его можно открыть и посмотреть 
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/100207961/237032483-fc2662b6-5a60-4d57-b040-7d85df5b7873.png">
+
 ## Поддерживаются ли транзакции в вашей СУБД? Если да, то расскажите о нем. Если нет, то существует ли альтернатива?
 ## Какие методы восстановления поддерживаются в вашей СУБД. Расскажите о них.
 ## Расскажите про шардинг в вашей конкретной СУБД. Какие типы используются? Принцип работы.
+
+![image](https://user-images.githubusercontent.com/100207961/237036284-235ceec2-4a50-498d-ba91-2cf121ca52b7.png)
+
+Druid is a services-based architecture that consists of independently scalable services for ingestion, querying, and orchestration, each of which can be fine-tuned to optimize cluster resources for mixed use cases and workloads. For example, more resources can be directed to Druid’s query service while providing less resources to ingestion as workloads change. Druid services can fail without impact on the operations of other services.
+
+A Druid deployment is a scalable cluster of commodity hardware with node types that serve specific functions. In a small configuration, all of these nodes can run together on a single server (or even a laptop). For larger deployments, one or more servers are dedicated to each node type and can scale to thousands of nodes for higher throughput requirements.
+
+Master Nodes govern data availability and ingestion
+Query Nodes accept queries, manage execution across the system, and return the results
+Data Nodes execute ingestion workloads and queries as well as store queryable data
+In addition, Druid utilizes a deep storage layer - cloud object storage or HDFS - that contains an additional copy of each data segment. It enables background data movement between Druid processes and also provides a highly durable data source to recover from system failures.
+
+
 ## Возможно ли применить термины Data Mining, Data Warehousing и OLAP в вашей СУБД?
 ## Какие методы защиты поддерживаются вашей СУБД? Шифрование трафика, модели авторизации и т.п.
 ## Какие сообщества развивают данную СУБД? Кто в проекте имеет права на коммит и создание дистрибутива версий? Расскажите об этих людей и/или компаниях.
