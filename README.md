@@ -1,4 +1,14 @@
 # Apache Druid
+Druid is a high performance, real-time analytics database that delivers sub-second queries on streaming and batch data at scale and under load.
+
+Apache Druid is used to power real-time analytics applications that require fast queries at scale and under load on streaming and batch data. Druid features a unique distributed architecture across its ingestion, storage, and query layer to handle the scale needed for large aggregations with the performance needed for applications.
+
+![image](https://github.com/savelevmipt/druid/assets/100207961/f68914f9-ff06-4943-a38f-cc75e7eb624b)
+
+Druid is a services-based architecture that consists of independently scalable services for ingestion, querying, and orchestration, each of which can be fine-tuned to optimize cluster resources for mixed use cases and workloads. For example, more resources can be directed to Druid’s query service while providing less resources to ingestion as workloads change. Druid services can fail without impact on the operations of other services.
+
+A Druid deployment is a scalable cluster of commodity hardware with node types that serve specific functions. In a small configuration, all of these nodes can run together on a single server (or even a laptop). For larger deployments, one or more servers are dedicated to each node type and can scale to thousands of nodes for higher throughput requirements.
+
 
 ## История развития СУБД
 
