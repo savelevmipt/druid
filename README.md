@@ -52,6 +52,13 @@ Druid написан на Java.
 <img width="1280" alt="image" src="https://user-images.githubusercontent.com/100207961/237032483-fc2662b6-5a60-4d57-b040-7d85df5b7873.png">
 
 ## Поддерживаются ли транзакции в вашей СУБД? Если да, то расскажите о нем. Если нет, то существует ли альтернатива?
+
+On the ingestion side, Druid's primary ingestion methods are all pull-based and offer transactional guarantees. This means that you are guaranteed that ingestion using these methods will publish in an all-or-nothing manner:
+
+* Supervised "seekable-stream" ingestion methods like Kafka and Kinesis. With these methods, Druid commits stream offsets to its metadata store alongside segment metadata, in the same transaction. Note that ingestion of data that has not yet been published can be rolled back if ingestion tasks fail. In this case, partially-ingested data is discarded, and Druid will resume ingestion from the last committed set of stream offsets. This ensures exactly-once publishing behavior.
+* Hadoop-based batch ingestion. Each task publishes all segment metadata in a single transaction.
+* Native batch ingestion. In parallel mode, the supervisor task publishes all segment metadata in a single transaction after the subtasks are finished. In simple (single-task) mode, the single task publishes all segment metadata in a single transaction after it is complete.
+
 ## Какие методы восстановления поддерживаются в вашей СУБД. Расскажите о них.
 ## Расскажите про шардинг в вашей конкретной СУБД. Какие типы используются? Принцип работы.
 
