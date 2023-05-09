@@ -136,6 +136,20 @@ Druid offers the following advantages over traditional data warehouses:
 
 
 ## Какие методы защиты поддерживаются вашей СУБД? Шифрование трафика, модели авторизации и т.п.
+
+<img width="708" alt="image" src="https://user-images.githubusercontent.com/100207961/237055592-4f3b9df8-b0c6-4413-9d97-3b780363022e.png">
+
+
+### Authentication and authorization
+You can configure authentication and authorization to control access to the Druid APIs. Then configure users, roles, and permissions, as described in the following sections. Make the configuration changes in the common.runtime.properties file on all Druid servers in the cluster.
+
+Within Druid's operating context, authenticators control the way user identities are verified. Authorizers employ user roles to relate authenticated users to the datasources they are permitted to access. You can set the finest-grained permissions on a per-datasource basis.
+
+The following graphic depicts the course of request through the authentication process:
+
+![image](https://user-images.githubusercontent.com/100207961/237055230-2d9e1ff8-331c-4848-a28b-b4e42695977f.png)
+
+
 ## Какие сообщества развивают данную СУБД? Кто в проекте имеет права на коммит и создание дистрибутива версий? Расскажите об этих людей и/или компаниях.
 ## Создайте свои собственные данные для демонстрации работы СУБД. 
 ## Как продолжить самостоятельное изучение языка запросов с помощью демобазы. Если демобазы нет, то создайте ее.
